@@ -57,12 +57,3 @@ for x in shellcode:
         valid, res = solve(int(struct.unpack("<I", x)[0]), count, previous)
         count += 1
     previous = int(struct.unpack("<I", x)[0])
-#print('###########')
-#sumCheck = 0
-#for b in res[-3:]:
-#    sumCheck += b
-#    print("sub eax, {0}".format(hex(b)))
-#print('###########')
-
-#print('Check sum = {}'.format(hex(sumCheck)))
-
