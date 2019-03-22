@@ -35,8 +35,8 @@ parser.add_argument("-o", "--offset", type=lambda x: (int(x,16)), help="Bytes to
 parser.add_argument("-c", "--esp", type=lambda x: (int(x,16)), help="Address of ESP")
 parser.add_argument("-t", "--target", type=lambda x: (int(x,16)), help="Shellcode start address")
 args = parser.parse_args()
-
-if not args.offset and not (args.esp and args.target):
+print(args)
+if not args.offset and not (args.esp is not None and args.target):
     parser.print_help()
     parser.exit()
 offset = args.offset
@@ -57,6 +57,8 @@ for b in res[-3:]:
     sumCheck += b
     print("sub eax, {0}".format(hex(b)))
 print('###########')
+for b in res[-3:]:
+    print("\"\\x2D\" + pack(\"<I\", {0})".format(hex(b)))
 
 print('Check sum = {}'.format(hex(sumCheck)))
 
