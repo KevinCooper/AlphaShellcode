@@ -57,7 +57,6 @@ for x in shellcode:
         valid, res = solve(int(struct.unpack("<I", x)[0]), count, previous)
         count += 1
     previous = int(struct.unpack("<I", x)[0])
-<<<<<<< HEAD
 
 print("#AND out EAX")
 print("\"\\x25\\x4A\\x4D\\x4E\\x55\"")
@@ -71,6 +70,3 @@ print("\"\\x25\\x35\\x32\\x31\\x2A\"")
 for b in res:
     print("\"\\x2D\" + pack(\"<I\", {0})".format(hex(b)))
 #print('Check sum = {}'.format(hex(sumCheck)))
-
-=======
->>>>>>> ea1bc395b1bce0ba39dfa2084008be4f93e366c5
